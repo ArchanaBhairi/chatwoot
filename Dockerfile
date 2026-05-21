@@ -8,4 +8,4 @@ ENV MALLOC_ARENA_MAX=2
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "bundle exec rails db:chatwoot_prepare && bundle exec rails server -b 0.0.0.0 -p 3000"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
