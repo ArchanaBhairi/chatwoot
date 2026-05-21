@@ -2,10 +2,12 @@ FROM chatwoot/chatwoot:latest
 
 ENV RAILS_ENV=production
 ENV NODE_ENV=production
-ENV WEB_CONCURRENCY=0
-ENV RAILS_MAX_THREADS=1
-ENV MALLOC_ARENA_MAX=2
+ENV WEB_CONCURRENCY=2
+ENV RAILS_MAX_THREADS=5
 
-EXPOSE 3000
+EXPOSE 10000
 
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
